@@ -9,7 +9,6 @@
     background-color: grey;
     width: 100%;
     line-height: 0px;
-
 }
 
 .interface {
@@ -33,15 +32,27 @@ table {
 .timer {
     text-align: center;
     border: 1px solid black;
-    position: absolute;
     top: 50px;
     width: 100px;
     color: red;
+    margin:auto;
+    margin-top: 20px;
 
 }
 
-.interface button {
-    position: relative;
+.difficulty-buttons {
     text-align: center;
+}
 
+
+
+.restart-button{
+    margin-left: 200px;
+    margin-top: 20px;
+    width: 100px;
+
+}
+
+.restart-button:hover, .cell:hover, .difficulty-buttons button:hover{
+    cursor:pointer;
 }

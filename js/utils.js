@@ -50,7 +50,7 @@ function renderBoard() {
         for (var j = 0; j < gLevel.size; j++) {
             strHTML += `<td oncontextmenu="return false;" 
             onmousedown="cellClicked(event, ${i}, ${j})"
-             class="cell cell-${i}-${j}" ><span></span></td>`
+             class="cell cell-${i}-${j}" ></td>`
         }
         strHTML += '</tr>';
     }
