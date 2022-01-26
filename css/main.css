@@ -1,0 +1,47 @@
+* {
+    box-sizing: border-box;
+}
+
+.cell {
+    position: relative;
+    border: 1px solid black;
+    text-align: center;
+    background-color: grey;
+    width: 100%;
+    line-height: 0px;
+
+}
+
+.interface {
+    position: relative;
+    margin: auto;
+    background-color: springgreen;
+    width: 500px;
+    height: 600px;
+}
+
+table {
+    table-layout: fixed;
+    position: absolute;
+    width: 400px;
+    height: 400px;
+    bottom: 0px;
+    left: 45px;
+
+}
+
+.timer {
+    text-align: center;
+    border: 1px solid black;
+    position: absolute;
+    top: 50px;
+    width: 100px;
+    color: red;
+
+}
+
+.interface button {
+    position: relative;
+    text-align: center;
+
+}
