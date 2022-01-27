@@ -10,6 +10,7 @@
 </head>
 
 <body onload="init()">
+    <h1>MINESWEEPER</h1>
     <div class="interface">
         <div class="difficulty-buttons">
             <button onclick="setDifficulty('easy')">Easy</button>
@@ -17,6 +18,8 @@
             <button onclick="setDifficulty('hard')">Hard</button>
         </div>
         <div class="timer">Timer: <span>0</span></div>
+        <div class="best-time">Best Time: <span>---</span> seconds</div>
+        <div class="lives">Lives: <span></span></div>
         <button class="restart-button" onclick="init()"></button>
         <table class="game-board"></table>
     </div>

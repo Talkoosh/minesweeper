@@ -1,5 +1,15 @@
 * {
     box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+body{
+    background-color: rgb(172, 136, 136);
+}
+
+h1{
+    text-align: center;
+    color: orange
 }
 
 .cell {
@@ -7,14 +17,12 @@
     border: 1px solid black;
     text-align: center;
     background-color: grey;
-    width: 100%;
     line-height: 0px;
 }
 
 .interface {
     position: relative;
     margin: auto;
-    background-color: springgreen;
     width: 500px;
     height: 600px;
 }
@@ -29,30 +37,51 @@ table {
 
 }
 
+.difficulty-buttons {
+    text-align: center;
+}
+
 .timer {
     text-align: center;
-    border: 1px solid black;
+    border-bottom: 3px solid black;
     top: 50px;
     width: 100px;
-    color: red;
+    color: aqua;
     margin:auto;
     margin-top: 20px;
 
 }
 
-.difficulty-buttons {
+.best-time{
+    border: 1px solid black;
+    width: 200px;
+    margin-top: 10px;
     text-align: center;
 }
 
-
-
 .restart-button{
     margin-left: 200px;
-    margin-top: 20px;
+    margin-top: 10px;
     width: 100px;
 
 }
 
+.lives{
+    border-bottom: 1px solid black;
+    width: 70px;
+    margin-top: 10px;
+    text-align: center;
+    color:rgb(29, 207, 59)
+}
+
 .restart-button:hover, .cell:hover, .difficulty-buttons button:hover{
     cursor:pointer;
+}
+
+.revealed{
+    background-color: rgb(196, 193, 193)
+}
+
+.hidden-mine{
+    background-color: red;
 }
