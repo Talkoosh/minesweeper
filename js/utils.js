@@ -45,7 +45,7 @@ function renderBoard() {
         strHTML += '<tr>';
         for (var j = 0; j < gLevel.size; j++) {
             strHTML += `<td oncontextmenu="return false;" 
-            onmousedown="cellClicked(event, ${i}, ${j})"
+            onmouseup="cellClicked(event, ${i}, ${j})"
              class="cell cell-${i}-${j}" ></td>`
         }
         strHTML += '</tr>';
@@ -89,14 +89,46 @@ function setButtonToNeutral() {
     elRestartBtn.innerText = NEUTRAL_FACE;
 }
 
-function renderLivesCount() {
-    var elLivesCount = document.querySelector('.lives span');
-    elLivesCount.innerText = gGame.lives;
+function renderLives() {
+    var elLives = document.querySelector('.lives span');
+    var lifeStrHTML = '';
+    for(var i = 0; i < gGame.lives; i++){
+        lifeStrHTML += LIFE;
+    }
+    elLives.innerText = lifeStrHTML;
 }
 
 function renderCellContent(cellContent, i, j) {
     var elCell = document.querySelector(`.cell-${i}-${j}`);
     elCell.innerText = cellContent;
+    var color; 
+    switch(cellContent){
+        case 1: 
+            color = 'blue';
+            break;
+        case 2:
+            color = 'green';
+            break;
+        case 3:
+            color = 'red';
+            break;
+        case 4:
+            color = 'purple';
+            break;
+        case 5:
+            color = 'darkred';
+            break;
+        case 6:
+            color = 'aqua';
+            break;
+        case 7: 
+            color = 'black';
+            break;
+        case 8:
+            color = 'yellow';
+
+    }
+    elCell.style.color = color;
 }
 
 function getRandomInt(min, max) {

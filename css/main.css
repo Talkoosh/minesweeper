@@ -1,23 +1,37 @@
 * {
     box-sizing: border-box;
-    font-family: sans-serif;
+     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
-body{
-    background-color: rgb(172, 136, 136);
+html{
+    min-height: 100%;
 }
 
-h1{
+body {
+    background: linear-gradient(to bottom, rgb(173, 219, 185), rgb(154, 236, 218) );
+}
+
+h1 {
     text-align: center;
-    color: orange
+    color: orange;
+    border-bottom: 3px solid black;
+    width: fit-content;
+    margin: auto;
+
 }
 
 .cell {
-    position: relative;
-    border: 1px solid black;
+    border: 0.5px solid rgb(238, 148, 148);
     text-align: center;
-    background-color: grey;
+    background-color: rgb(94, 94, 94);
     line-height: 0px;
+    border-radius: 3px;
+
+}
+
+.cell:active{
+    box-shadow: inset 0px 0px 5px #e6e1e1;
+    outline:none;
 }
 
 .interface {
@@ -34,54 +48,97 @@ table {
     height: 400px;
     bottom: 0px;
     left: 45px;
+    border-spacing: 0px;
 
 }
 
 .difficulty-buttons {
     text-align: center;
+    margin-top: 100px;
+}
+
+.difficulty-buttons button{
+    font-size: 20px;
+    border-radius: 5px;
+    color:white;
+    font-family: cursive;
+    
+}
+
+.easy{
+    background-color: green;
+}
+
+.medium{
+    background-color: orange;
+}
+
+.hard{
+    background-color: red;
 }
 
 .timer {
     text-align: center;
-    border-bottom: 3px solid black;
     top: 50px;
     width: 100px;
-    color: aqua;
-    margin:auto;
+    color: blue;
+    margin: auto;
     margin-top: 20px;
-
+    position: relative;
+    font-size: 20px;
+    
 }
 
-.best-time{
+.best-time {
     border: 1px solid black;
+    border-radius: 5px;
     width: 200px;
-    margin-top: 10px;
     text-align: center;
+    margin: auto;
+    position: relative;
+    top: 40px;
 }
 
-.restart-button{
-    margin-left: 200px;
+.restart-button {
+    margin-left: 230px;
     margin-top: 10px;
-    width: 100px;
-
+    font-size: 25px;
+    padding: 0;
+    border: none;
+    background: none;
+    position: relative;
+    bottom: -60px;
 }
 
-.lives{
-    border-bottom: 1px solid black;
-    width: 70px;
-    margin-top: 10px;
-    text-align: center;
-    color:rgb(29, 207, 59)
+.lives {
+    width: fit-content;
+    color: rgb(29, 207, 59);
+    margin: auto;
+    margin-top: 30px;
+    font-size: 30px;
 }
 
-.restart-button:hover, .cell:hover, .difficulty-buttons button:hover{
-    cursor:pointer;
+.restart-button:hover, .cell:hover, .difficulty-buttons button:hover, .safe-button:hover {
+    cursor: pointer;
 }
 
-.revealed{
-    background-color: rgb(196, 193, 193)
+.revealed {
+    background-color: rgb(230, 224, 224)
 }
 
-.hidden-mine{
+.hidden-mine {
     background-color: red;
+}
+
+.safe-button{
+    position: relative;
+    left: 450px;
+    top: 20px;
+    font-size: 20px;
+    border-radius: 5px;
+    background-color: cyan;
+}
+
+.safe-click{
+    background-color: aqua;
 }

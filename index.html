@@ -12,16 +12,17 @@
 <body onload="init()">
     <h1>MINESWEEPER</h1>
     <div class="interface">
-        <div class="difficulty-buttons">
-            <button onclick="setDifficulty('easy')">Easy</button>
-            <button onclick="setDifficulty('medium')">Medium</button>
-            <button onclick="setDifficulty('hard')">Hard</button>
-        </div>
-        <div class="timer">Timer: <span>0</span></div>
         <div class="best-time">Best Time: <span>---</span> seconds</div>
-        <div class="lives">Lives: <span></span></div>
+        <div class="timer">Timer: <span>0</span></div>
         <button class="restart-button" onclick="init()"></button>
         <table class="game-board"></table>
+    </div>
+    <div class="lives">Lives: <span></span></div>
+    <button class="safe-button" onclick="safeClick()">Safe Clicks: <span></span></button>
+    <div class="difficulty-buttons">
+        <button class="easy" onclick="setDifficulty('easy')">Easy</button>
+        <button class="medium" onclick="setDifficulty('medium')">Medium</button>
+        <button class="hard" onclick="setDifficulty('hard')">Hard</button>
     </div>
     <script src="js/utils.js"></script>
     <script src="js/main.js"></script>

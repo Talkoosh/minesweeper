@@ -5,6 +5,7 @@ const FLAG = '🚩';
 const NEUTRAL_FACE = '🙂';
 const WIN_FACE = '😎';
 const LOSE_FACE = '🤯';
+const LIFE = '❤️';
 
 var gIsFirstClick = true;
 var gTimerInterval;
@@ -12,6 +13,7 @@ var gTimerInterval;
 var gGame;
 
 var gBoard;
+
 
 var gLevel = gEasy;
 
@@ -21,22 +23,24 @@ function init() {
     gGame = setGameStart();
     resetTimer();
     setButtonToNeutral();
-    renderLivesCount();
+    renderLives();
     renderBestTime();
+    renderSafeClicks();
     gIsFirstClick = true;
 }
 
 function setGameStart() {
-    var lives;
-    if (gLevel.level === 'easy') lives = 1;
-    else if (gLevel.level === 'medium') lives = 2;
-    else if (gLevel.level === 'hard') lives = 3;
+    var lives, safeClicks;
+    if (gLevel.level === 'easy') safeClicks = lives = 1;
+    else if (gLevel.level === 'medium') safeClicks = lives = 2;
+    else if (gLevel.level === 'hard') safeClicks = lives = 3;
     return {
         isOn: true,
         flagCount: 0,
         cellsShownCount: 0,
         timer: 0,
-        lives: lives
+        lives: lives,
+        safeClicks: safeClicks
     };
 }
 
@@ -117,7 +121,7 @@ function cellClicked(event, i, j) {
 
 function mineClicked(i, j) {
     gGame.lives--;
-    renderLivesCount();
+    renderLives();
     if (gGame.lives === 0) gameOver(false);
     else {
         var elCell = document.querySelector(`.cell-${i}-${j}`);
@@ -147,7 +151,6 @@ function gameOver(isWin) {
 
     if (!isWin) revealMines();
     else updateBestTime();
-
 }
 
 function checkWin() {
@@ -177,22 +180,46 @@ function revealNeighbors(row, col) {
         for (var j = col - 1; j <= col + 1; j++) {
             if (j < 0 || j >= gBoard[0].length) continue;
             if (i === row && j === col) continue;
+            if (gBoard[i][j].isMarked) continue;
 
             if (gBoard[i][j].minesAroundCount === 0 && !gBoard[i][j].isShown) {
-                gBoard[i][j].isShown = true; 
+                gBoard[i][j].isShown = true;
                 gGame.cellsShownCount++;
                 revealNeighbors(i, j);
             }
 
             //model
-            if (!gBoard[i][j].isShown) gGame.cellsShownCount++;
-            gBoard[i][j].isShown = true;
+            if (!gBoard[i][j].isShown) {
+                gGame.cellsShownCount++;
+                gBoard[i][j].isShown = true;
+            }
 
 
             //DOM
-            var elCell = document.querySelector(`.cell-${i}-${j}`);
-            elCell.innerText = (gBoard[i][j].minesAroundCount === 0) ? ' ' : gBoard[i][j].minesAroundCount;
-            elCell.classList.add('revealed');
+            var cellContent = (gBoard[i][j].minesAroundCount === 0) ? '' : gBoard[i][j].minesAroundCount;
+            renderCellContent(cellContent, i, j);
+            revealCell(i, j);
         }
     }
+}
+
+function safeClick() {
+    
+    if(gGame.cellsShownCount === (gLevel.size ** 2) - gLevel.mines) return;
+    if(gGame.safeClicks === 0) return; 
+    gGame.safeClicks--;
+    do {
+        var pos = getRandomPos(gBoard);
+    } while (gBoard[pos.i][pos.j].isMine || gBoard[pos.i][pos.j].isShown)
+
+    var elSafeClick = document.querySelector(`.cell-${pos.i}-${pos.j}`);
+    elSafeClick.classList.add('safe-click');
+    setTimeout(function(){elSafeClick.classList.remove('safe-click')}, 1500)
+
+    renderSafeClicks();
+}
+
+function renderSafeClicks(){
+    var elSafeClicksCount = document.querySelector('.safe-button span');
+    elSafeClicksCount.innerText = gGame.safeClicks;
 }
