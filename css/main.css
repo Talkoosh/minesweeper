@@ -1,14 +1,14 @@
 * {
     box-sizing: border-box;
-     font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
-html{
+html {
     min-height: 100%;
 }
 
 body {
-    background: linear-gradient(to bottom, rgb(173, 219, 185), rgb(154, 236, 218) );
+    background: linear-gradient(to bottom, rgb(173, 219, 185), rgb(154, 236, 218));
 }
 
 h1 {
@@ -29,9 +29,9 @@ h1 {
 
 }
 
-.cell:active{
+.cell:active {
     box-shadow: inset 0px 0px 5px #e6e1e1;
-    outline:none;
+    outline: none;
 }
 
 .interface {
@@ -54,26 +54,26 @@ table {
 
 .difficulty-buttons {
     text-align: center;
-    margin-top: 100px;
+    margin-top: 70px;
 }
 
-.difficulty-buttons button{
+.difficulty-buttons button {
     font-size: 20px;
     border-radius: 5px;
-    color:white;
+    color: white;
     font-family: cursive;
-    
+
 }
 
-.easy{
+.easy {
     background-color: green;
 }
 
-.medium{
+.medium {
     background-color: orange;
 }
 
-.hard{
+.hard {
     background-color: red;
 }
 
@@ -86,7 +86,7 @@ table {
     margin-top: 20px;
     position: relative;
     font-size: 20px;
-    
+
 }
 
 .best-time {
@@ -130,15 +130,18 @@ table {
     background-color: red;
 }
 
-.safe-button{
-    position: relative;
-    left: 450px;
-    top: 20px;
+.safe-button {
     font-size: 20px;
     border-radius: 5px;
     background-color: cyan;
 }
 
-.safe-click{
+.safe-button-wrapper {
+    text-align: center;
+    margin-top: 30px;
+}
+
+
+.safe-click {
     background-color: aqua;
 }

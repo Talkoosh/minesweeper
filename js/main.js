@@ -204,7 +204,7 @@ function revealNeighbors(row, col) {
 }
 
 function safeClick() {
-    
+    if(!gGame.isOn) return;
     if(gGame.cellsShownCount === (gLevel.size ** 2) - gLevel.mines) return;
     if(gGame.safeClicks === 0) return; 
     gGame.safeClicks--;
